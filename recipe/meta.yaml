@@ -6,12 +6,12 @@ package:
   version: {{ version }}
 
 source:
-  url: https://pypi.org/packages/source/{{ name[0] }}/{{ name }}/datasketches-{{ version }}.tar.gz
-  sha256: c00d61da4695e00036e63f590999f584cc39246cbb147b171f375f792604a612
+  url: https://github.com/apache/datasketches-python/archive/{{ version }}.tar.gz
+  sha256: 9bbc4f33261a0ef8c3dc8789a6e7eb6d66d3d742b10648a25bb679faf30fdd93
 
 build:
   script: {{ PYTHON }} -m pip install . -vv --no-deps --no-build-isolation
-  number: 1
+  number: 2
 
 requirements:
   build:
@@ -26,7 +26,7 @@ requirements:
     - wheel
     - setuptools >=30.3.0
     - cmake >=3.16
-    - numpy <2.0
+    - numpy
     - nanobind >=1.6
     - pip
     - make
@@ -45,7 +45,7 @@ test:
 
 about:
   home: http://datasketches.apache.org
-  dev_url: https://github.com/apache/datasketches-cpp/tree/master/python
+  dev_url: https://github.com/apache/datasketches-python
   summary: The Apache DataSketches Library for Python
   license: Apache-2.0
   license_file:
